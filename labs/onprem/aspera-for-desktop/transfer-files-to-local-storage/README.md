@@ -41,10 +41,12 @@ taskkill /f /t /im asperaconnect.exe
 
 Open IBM Aspera for desktop from the Windows Desktop as below. <br>
 
+![alt text](./images/image-1.png)
+
+![alt text](./images/image-11.png)
 
 Optional: Explore Account Settings by clicking on the 3 dots next to the "My Aspera account", and click "Edit" option. <br>
 
-![alt text](./images/image-1.png)
 
 Double click on "My IBM Aspera account" tile. It will be connected to the HSTS server, and will show files under /home/xfer1 folder.<br>
 
