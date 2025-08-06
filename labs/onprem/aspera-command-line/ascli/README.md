@@ -139,7 +139,7 @@ Enable JWT grant type: On <br>
 ClientID, Secret will be generated, you will need them next. <br>
 <br> 
 Windows Command Prompt: <br>
-ascli conf wiz https://10.0.0.2 faspex5 --show-secrets=yes --username=ibmcp4ipot@gmail.com --client-id=xxx --client-secret=xxxx --insecure-yes
+ascli conf wiz https://10.0.0.2 faspex5 --show-secrets=yes --username=put-your-personal-email --client-id=xxx --client-secret=xxxx --insecure-yes
 <br>
 The above will generate a private key and public key. <br>
 Copy the Public Key, <br>
