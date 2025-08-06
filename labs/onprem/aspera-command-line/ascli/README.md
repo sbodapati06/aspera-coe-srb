@@ -80,7 +80,9 @@ You should see the transfer status as above. Click on the transfer to see additi
 
 
 ```
-ascli faspex5 package send @json:'{"title":"faspex5 test1", "recipients":["ibmcp4ipot@gmail.com"]}' C:\Users\techzone\Downloads\aspera-test-dir-tiny\200KB.1
+Replace your-personal-email with your email id.
+
+ascli faspex5 package send @json:'{"title":"faspex5 test1", "recipients":["your-personal-email"]}' C:\Users\techzone\Downloads\aspera-test-dir-tiny\200KB.1
 ```
 
 ![alt text](./images/image-6.png)
@@ -139,7 +141,7 @@ Enable JWT grant type: On <br>
 ClientID, Secret will be generated, you will need them next. <br>
 <br> 
 Windows Command Prompt: <br>
-ascli conf wiz https://10.0.0.2 faspex5 --show-secrets=yes --username=put-your-personal-email --client-id=xxx --client-secret=xxxx --insecure-yes
+ascli conf wiz https://10.0.0.2 faspex5 --show-secrets=yes --username=ibmcp4ipot@gmail.com --client-id=xxx --client-secret=xxxx --insecure-yes
 <br>
 The above will generate a private key and public key. <br>
 Copy the Public Key, <br>
