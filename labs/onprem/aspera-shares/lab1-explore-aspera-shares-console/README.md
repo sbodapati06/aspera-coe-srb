@@ -23,11 +23,15 @@ This lab will explore how to navigate around Aspera Shares GUI. You can explore 
 
 ## 2. Logon to Aspera Shares <a name="login"></a>
 
+Click on the Windows VDI, and login as techzone/IBMDem0s. <br>
+
+![alt text](./images/image-11.png)
+
 Open Chrome Browser, and click on "Aspera Shares" from the Bookmark bar.
 
 ![alt text](./images/image.png)
 
-Login with the admin / WelcometoAspera@2025 credentials. <br>
+Login with admin / WelcometoAspera@2025 credentials. <br>
 
 The system is pre-configured with an HSTS Node (aspera1), and a Shared folder (demo-share-1). <br>
 
@@ -40,7 +44,13 @@ Click on "demo-share-1" Shared folder. <br>
 
 ![alt text](./images/image-2.png)
 
+You may be asked to open IBM Aspera client. Check the checkbox, and click on \<Open IBM Aspera\> button. <br>
+
+![alt text](./images/image-12.png)
+
+
 Click on "Upload File" Button. <br>
+
 ![alt text](./images/image-4.png)
 
 Pick 10GB file as above. <br> 
