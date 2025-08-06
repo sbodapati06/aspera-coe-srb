@@ -14,19 +14,19 @@ Unlike traditional transfer protocols (FTP, HTTP). IBM Aspera uses patented Fast
 
 |  Subject                            | Description                                            |                                                               
 |-----------------------------|------------------------------------------------------------------------------------------------------------|
-| [Aspera Faspex](labs/onprem/aspera-faspex/index.md)       | Aspera Faspex labs to share Files, and Package with people
+| [Aspera Faspex](aspera/labs/onprem/aspera-faspex/index.md)       | Aspera Faspex labs to share Files, and Package with people
 |-----------------------------|------------------------------------------------------------------------------------------------------------|
-| [Aspera Shares](labs/onprem/aspera-shares/index.md)       | Aspera Shares labs to upload & download files
+| [Aspera Shares](aspera/labs/onprem/aspera-shares/index.md)       | Aspera Shares labs to upload & download files
 |-----------------------------|------------------------------------------------------------------------------------------------------------|
-| [Aspera for desktop](labs/onprem/aspera-for-desktop/index.md)       | Aspera for desktop *** New Product *** labs to transfer files to HSTS Node, Faspex
+| [Aspera for desktop](aspera/labs/onprem/aspera-for-desktop/index.md)       | Aspera for desktop *** New Product *** labs to transfer files to HSTS Node, Faspex
 |-----------------------------|------------------------------------------------------------------------------------------------------------|
-| [Aspera Command Line](labs/onprem/aspera-command-line/index.md)       | Aspera Command Line labs
+| [Aspera Command Line](aspera/labs/onprem/aspera-command-line/index.md)       | Aspera Command Line labs
 |-----------------------------|------------------------------------------------------------------------------------------------------------|
-| [Aspera Console](labs/onprem/aspera-console/index.md)       | Aspera Console labs
+| [Aspera Console](aspera/labs/onprem/aspera-console/index.md)       | Aspera Console labs
 |-----------------------------|------------------------------------------------------------------------------------------------------------|
-| [Aspera faspio Gateway](labs/onprem/aspera-faspio/index.md)       | Aspera faspio Gateway labs
+| [Aspera faspio Gateway](aspera/labs/onprem/aspera-faspio/index.md)       | Aspera faspio Gateway labs
 |-----------------------------|------------------------------------------------------------------------------------------------------------|
-| [Aspera Desktop Client](labs/onprem/aspera-desktop-client/index.md)       | Aspera Desktop Client labs to transfer files to HSTS Node
+| [Aspera Desktop Client](aspera/labs/onprem/aspera-desktop-client/index.md)       | Aspera Desktop Client labs to transfer files to HSTS Node
 |-----------------------------|------------------------------------------------------------------------------------------------------------|
-| [Aspera Installation](labs/onprem/aspera-installation/index.md)       | *** coming soon *** 
+| [Aspera Installation](aspera/labs/onprem/aspera-installation/index.md)       | *** coming soon *** 
 |-------------------------|------------------------------------------------------------------------------------------------------------|
