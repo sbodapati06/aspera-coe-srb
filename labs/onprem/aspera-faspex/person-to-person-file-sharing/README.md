@@ -80,6 +80,8 @@ Open your WebMail from the browser (for example yahoo mail). <br>
 
 Check your Email Inbox, see if you received Email from "Faspex Techzone". <br>
 
+**Note:** Check your Spam folder just incase. <br>
+
 ![alt text](./images/image-9.png)
 
 Now, click the \"Download Package\". <br>
