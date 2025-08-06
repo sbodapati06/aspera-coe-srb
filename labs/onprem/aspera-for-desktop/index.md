@@ -1,9 +1,11 @@
 # Aspera for desktop labs
 
+[Return to Aspera labs page](../../../index.md)
 
 ### What is Aspera for desktop?
 
-[Return to Aspera labs page](../../../index.md)
+IBM Aspera for desktop is a software application that enables high-speed, secure, and reliable file transfers between your computer and Aspera transfer servers. It acts as a client application, facilitating file transfers directly from your desktop, often integrated with web applications for seamless uploads and downloads. This tool is designed to replace the older Aspera Connect client and offers a more modern, intuitive, and streamlined user experience. <br>
+
 
 ## Lab Abstracts
 
