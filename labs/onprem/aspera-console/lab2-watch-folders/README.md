@@ -21,6 +21,9 @@
 In this laboratory, you will employ IBM Aspera Console to configure Watch Folders aimed at the automatic transfer of files from the AMERICAS Region to the EUROPE Region. The Watch Folders functionality of Aspera will oversee a source directory at predetermined intervals, facilitating the transfer of files to the designated destination.
 <br>
 
+**What is Aspera WatchFolder?**<br>
+A watchfolder is an automation of file transfers from a source to a destination system. Files placed into a source folder are automatically transferred to the destination. <br>
+
 Component Diagram: <br>
 
 ![alt text](./images/image.png)
