@@ -68,9 +68,9 @@ Open Putty Program from the Windows Desktop or Taskbar in the bottom of the scre
 
 Login as ibmuser / engageibm. <br>
 
-Run setup_target_env.sh. This will copy a HSTS license to EUROPE HSTS, then it updates aspera.conf with the Router WAN IP. Additionally, it will also restart aspera services. <br>
+Run setup_target_env.sh. This will copy a HSTS (High Speed Transfer Server) license to EUROPE HSTS, then it updates aspera.conf with the EUROPE Router WAN IP. Additionally, it will also restart aspera services. <br>
 ```
-sudo ./setup-target-env.sh <Router WAN IP>
+sudo ./setup-target-env.sh <EUROPE Router WAN IP>
 ```
 <br>
 
