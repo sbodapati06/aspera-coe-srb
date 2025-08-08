@@ -15,7 +15,7 @@
 ---
 
 
-## 1. Overview <<a name="overiew"></a>
+## 1. Overview <a name="overiew"></a>
 
 This lab will go over how ot use ascli command line tool. ascli is a command line tool to interfact with Aspera HSTS, Aspera FaspEx, Aspera Shares, Aspera on Cloud, and more. You can use ascli to upload/download files.<br>
 
