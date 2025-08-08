@@ -17,6 +17,11 @@
 
 In this lab, you will use IBM Aspera Faspex to package and share files via Email.
 
+**Component Diagram** <br>
+![alt text](./images/architecture.png)
+
+<br>
+
 
 ## 2. Logon to Aspera Faspex <a name="login"></a>
 
