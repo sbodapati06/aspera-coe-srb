@@ -17,7 +17,7 @@
 
 ## 1. Overview <a name="overiew"></a>
 
-This lab will explore how to navigate around Aspera Shares GUI. You can explore how to Upload files to share with other members of the organization. You can also observe the transfer speeds that Aspera offers using FASP technology.
+This lab will explore how to navigate around Aspera Shares GUI. You can explore how to Upload files to share with other members of the organization. You can also observe the transfer speeds that Aspera offers using FASP technology. <br>
 
 
 Component Diagram <br>
