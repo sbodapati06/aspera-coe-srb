@@ -25,7 +25,12 @@ In this lab, you will use IBM Aspera Faspex to package and share files via Email
 
 ## 2. Logon to Aspera Faspex <a name="login"></a>
 
-From the Windows VDI, open Google Chrome brower, and click on \"Aspera Faspex\" bookmark from the Bookmark Bar. <br>
+Click on the Windows VM. <br>
+![alt text](./images/image-13.png)
+
+Login with credentials techzone / IBMDem0s. <br>
+
+Once you login into the Windows VM, open Google Chrome brower, and click on \"Aspera Faspex\" bookmark from the Bookmark Bar. <br>
 
 Login with your admin id. <br>
 user: ibmcp4ipot@gmail.com <br>
