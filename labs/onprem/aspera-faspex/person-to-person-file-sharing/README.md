@@ -25,7 +25,7 @@ In this lab, you will use IBM Aspera Faspex to package and share files via Email
 
 ## 2. Logon to Aspera Faspex <a name="login"></a>
 
-Click on the Windows VM. <br>
+Click on the Windows Virtuam Machine (VM). <br>
 ![alt text](./images/image-13.png)
 
 Login with credentials techzone / IBMDem0s. <br>
