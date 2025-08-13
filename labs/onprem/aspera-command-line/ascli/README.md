@@ -35,7 +35,7 @@ ascli --version
 **Upload** a file <br>
 
 ```
-ascli -N node --url=https://10.0.0.1:9092 --username=asperanodeuser --password=WelcometoAspera@2025 up ‘C:\Users\techzone\Downloads\aspera-test-dir-tiny\200KB.18’  --insecure=yes
+ascli -N node --url=https://10.0.0.1:9092 --username=asperanodeuser --password=WelcometoAspera@2025 up C:\Users\techzone\Downloads\aspera-test-dir-tiny\200KB.18  --insecure=yes
 ```
 ![alt text](./images/image-4.png)
 
