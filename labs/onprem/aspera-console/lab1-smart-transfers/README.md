@@ -70,7 +70,7 @@ Login as ibmuser / engageibm. <br>
 
 Run setup_target_env.sh. This will copy a HSTS (High Speed Transfer Server) license to EUROPE HSTS, then it updates aspera.conf with the EUROPE Router WAN IP. Additionally, it will also restart aspera services. <br>
 ```
-sudo ./setup-target-env.sh <EUROPE Router WAN IP>
+sudo ./setup-target-env.sh "PASTE-YOUR-EUROPE-Router-WAN-IP"
 ```
 <br>
 

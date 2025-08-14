@@ -58,7 +58,7 @@ Logon to aspera1 virtual machine as ibmuser / engageibm. Use Putty program from 
 
 Run setup_target_env.sh. This will copy a HSTS license to EUROPE HSTS, then it updates aspera.conf with the Router WAN IP. Additionally, it will also restart aspera services. <br>
 ```
-sudo ./setup-target-env.sh <Router WAN IP>
+sudo ./setup-target-env.sh "PASTE-YOUR-EUROPE-Router-WAN-IP"
 ```
 <br>
 
