@@ -13,6 +13,4 @@ IBM Aspera faspio Gateway is a software component that accelerates TCP-based dat
 |-------------------------|------------------------------------------------------------------------------------------------------------|
 | [Lab 1](./lab1-faspio-with-mq/README.md)       | Aspera faspio Gateway with IBM MQ to move messages quicker between Queue Managers
 |-------------------------|
-| [Lab 2](Lab_2/ReadMe.md)       | **TBD**
-|-------------------------|------------------------------------------------------------------------------------------------------------|
-| [Lab 3](Lab_3/ReadMe.md)       | **TBD**
+| [Lab 2](Lab_2/ReadMe.md)       | **Aspera faspio Gateway with IBM MQ Managed File Transfer to move files quicker between Queue Managers**
