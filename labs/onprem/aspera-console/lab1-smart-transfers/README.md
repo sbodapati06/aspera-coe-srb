@@ -83,6 +83,8 @@ Logon to the Windows Virtual Machine as techzone / IBMDem0s user. <br>
 
 Open Chrome Browser, and click on "Aspera Console" from the Bookmark bar. <br>
 
+Login as admin/WelcometoAspera@2025. <br>
+
 Add Destination Aspera HSTS (High Speed Transfer Server) Node, under Nodes tab. <br>
 
 ![alt text](./images/image-2.png)
