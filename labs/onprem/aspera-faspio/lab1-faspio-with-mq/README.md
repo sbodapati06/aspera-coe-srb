@@ -36,7 +36,7 @@ Architecture Diagram<br>
 
 The IBM MQ Queue Managers between AMERICAS, and EUROPE are linked via a set of Sender/Receiver TCP channels.
 <br>
-Then, we will leverage IBM Aspera faspio bridge between the MQ Sender/Receiver Channels to speed up message transfer between the two Queue Managers. <br>
+Then, we will leverage IBM Aspera faspio bridge between the MQ Sender/Receiver Channels to speed up message transfers between the two Queue Managers. <br>
 
 **Environment** <br>
 You will make use of two IBM Techzone environments situated in the AMERICAS and EUROPE regions. <br>
