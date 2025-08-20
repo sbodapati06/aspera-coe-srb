@@ -49,7 +49,7 @@ Then, compare the results TCP vs FASP. <br>
 <br>
 
 **Note:**<br>
-faspio lab1 is a pre-requirement. lab1 will takes care of faspio gateway setup, creation of the Agent Queue Managers between the regions. <br>
+**faspio lab1 is a pre-requirement. lab1 will takes care of faspio gateway setup, creation of the Agent Queue Managers (QMWDCD01, QMLDND01) between the regions.** <br>
 
 <br>
 
