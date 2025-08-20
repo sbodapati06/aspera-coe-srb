@@ -9,13 +9,12 @@
 # Table of Contents 
 - [1. Overview](#overview)
 - [2. Prepare the lab environment ](#lab-env-prep)
-- [3. faspio gateway setup ](#faspio-setup)
-  * [3.1 AMERICAS Environment Setup](#faspio-setup-americas)
-  * [3.2 EUROPE Environment Setup](#faspio-setup-europe)
-- [4. MQ Queue Manager Setup](#mq-setup)
-- [5. MQ Channels Verify](#mq-channel-verify)
-  * [5.2 AMERICAS Environment Setup](#mq-channel-verify-americas)
-- [6. Testing TCP vs FASP](#testing)
+- [3. MQ Queue Manager Setup](#mq-setup)
+  * [3.1 AMERICAS Environment Setup](#mq-setup-americas)
+  * [3.2 EUROPE Environment Setup](#mq-setup-europe)
+- [4. MQ Channels Verify](#mq-channel-verify)
+  * [4.1 AMERICAS Environment Setup](#mq-channel-verify-americas)
+- [6. Testing TCP File Transfer](#tcp-testing)
   * [6.1 AMERICAS Environment](#testing-americas)
   * [6.2 EUROPE Environment](#testing-europe)
 - [7. Summary](#summary)
@@ -62,11 +61,11 @@ Save the IP Address(s) to a Notepad. You will need these to setup faspio gateway
 <br>
 
 
-## 2. MQ Managed File Transfer Queue Manager Setup <a name="mq-setup"></a>
+## 3. MQ Managed File Transfer Queue Manager Setup <a name="mq-setup"></a>
 
 In this step, you will setup IBM MQ Queue Mansgers for Managed File Transfer Queue Manager for Coordination & Command, Agent Queue Manager in AMERICAS, and Agent Queue Manager in EUROPE. <br>
 
-### 2.1 AMERICAS Environment Setup <a name="mq-setup-americas"></a>
+### 3.1 AMERICAS Environment Setup <a name="mq-setup-americas"></a>
 
 You are tasked with establishing a Queue Manager named QMMFTD01. QMMFTD01 will be used as a MQ Manaaged File Transfer Coordination Queue Manager. QMWDCD01 (where WDC denotes Washington DC), which you have created in the previous lab will be used as Managed File Transfer Agent Queue Manager. <br>
 
@@ -81,7 +80,7 @@ The script will create QMMFTD01, and an Managed File Transfer Agent called AGTWD
 **Note:** Due to the time limitations of the workshop, we streamlined the lab process and developed scripts for establishing the MQ Queue Managers and their connectivity. Kindly review the scripts if time allows. <br> 
 
 
-### 2.2 EUROPE Environment <a name="mq-setup-americas"></a>
+### 3.2 EUROPE Environment <a name="mq-setup-americas"></a>
 
 QMLDND01 (where LDN denotes London), which you have created in the previous lab will be used as Managed File Transfer Agent Queue Manager. 
 
@@ -96,12 +95,12 @@ Review the results. <br>
 
 
 
-## 3. MQ Channels Verify <a name="mq-channel-verify"></a>
+## 4. MQ Channels Verify <a name="mq-channel-verify"></a>
 
 Now, lets verify the MQ Channels are in RUNNING state. <br>
 
 
-### 3.1 AMERICAS Environment <a name="mq-channel-verify-americas"></a>
+### 4.1 AMERICAS Environment <a name="mq-channel-verify-americas"></a>
 
 ```
 echo "dis chstatus(wdc.ldn.*)" | runmqsc QMWDCD01
@@ -114,7 +113,7 @@ echo "dis chstatus(wdc.ldn.*)" | runmqsc QMWDCD01
 
 
 
-## 4. Testing TCP File Transfer <a name="testing"></a>
+## 5. Testing TCP File Transfer <a name="tcp-testing"></a>
 
 It is now the moment to evaluate our efforts. <br>
 
@@ -123,7 +122,8 @@ It is now the moment to evaluate our efforts. <br>
 This is use case 1, see architecture diagram under section 2.1.
 <br>
 Run the following commands from Washington VM, and London VM.<br>
-### 4.1 Transfer Zero bytes file 
+
+### 5.1 Transfer Zero bytes file 
 <table>
     <thead>
       <tr>
@@ -144,7 +144,9 @@ Make sure test1.txt is transferred.</td>
     </tbody>
   </table>
 
-### 4.2 Transfer 1GB file
+
+
+### 5.2 Transfer 1GB file
 
 Run the following commands from Washington VM, and London VM.<br>
 
@@ -172,7 +174,7 @@ Make sure test1.txt is transferred.</td>
 
 
 
-### 4.3 MQExplorer - Verify Transfer Status 
+### 5.3 MQExplorer - Verify Transfer Status 
 
 Open MQExplorer on AMERICAS Windows VM. <br>
 
