@@ -29,14 +29,13 @@ In this laboratory, you will explore the benefits of employing the IBM Aspera fa
 IBM Aspera faspio Gateway is a software component that accelerates TCP-based data transfers between systems, leveraging the Aspera FASP protocol for high-speed, reliable, and secure data movement over any distance. It acts as a bridge, enhancing data transfer performance, particularly over networks with high latency or packet loss. 
 <br>
 
-
 Architecture Diagram<br>
 ![alt text](./images/image.png)
 
 
-The IBM MQMFT Agent Queue Managers between AMERICAS, and EUROPE are linked via a set of Sender/Receiver TCP channels.
+The IBM MQ Managed File Transfer Coordination, Command and Managed File Transfer Agent(s) Queue Managers between AMERICAS, and EUROPE are linked via a set of Sender/Receiver TCP channels.
 <br>
-Then, we will leverage IBM Aspera faspio bridge between the MQ Sender/Receiver Channels to speed up file transfers between the two Queue Managers. <br>
+Then, we will leverage IBM Aspera faspio bridge between the IBM MQ Sender/Receiver Channels to speed up file transfers between the two Queue Managers. <br>
 
 **Environment** <br>
 You will make use of two IBM Techzone environments situated in the AMERICAS and EUROPE regions. <br>
@@ -47,6 +46,11 @@ a) Send 1GB file over TCP Channel<br>
 b) Send 1GB file over FASP Channel <br>
 
 Then, compare the results TCP vs FASP. <br>
+<br>
+
+**Note:**<br>
+faspio lab1 is a pre-requirement. lab1 will takes care of faspio gateway setup, creation of the Agent Queue Managers between the regions. <br>
+
 <br>
 
 
