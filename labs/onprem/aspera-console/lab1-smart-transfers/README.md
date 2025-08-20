@@ -207,7 +207,7 @@ You should see the transfer details. <br>
 
 ## 4. SFTP Transfer from AMERICAS to EUROPE <a name="sftp-transfer"></a>
 
-Let's rub an SFTP Transfer over TCP to compare the transfer speeds between TCP vs. FASP. <br>
+Let's run an SFTP Transfer over TCP to compare the transfer speeds between TCP vs. FASP. <br>
 
 Open Putty Program from the Windows VM's Desktop or Taskbar in the bottom of the screen. <br>
 
