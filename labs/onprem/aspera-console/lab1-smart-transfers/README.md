@@ -209,7 +209,7 @@ You should see the transfer details. <br>
 
 Let's run an SFTP Transfer over TCP to compare the transfer speeds between TCP vs. FASP. <br>
 
-Open Putty Program from the Windows VM's Desktop or Taskbar in the bottom of the screen. <br>
+In the AMERICAS environment, open Putty Program from the Windows VM's Desktop or Taskbar in the bottom of the screen. <br>
 
 ![alt text](./images/image-24.png)
 
@@ -220,7 +220,7 @@ Run the below commands (see the screenshot). We will initiate SFTP transfer from
 
 ```
 cd /data/nodeuser_data/AMERICAS
-sftp ibmuser@<Router WAN IP>
+sftp ibmuser@<EUROPE Router WAN IP>
 put 10GB-Marketing-data.1
 ```
 
