@@ -115,6 +115,7 @@ echo "dis chstatus(wdc.ldn.*)" | runmqsc QMWDCD01
 <br>
 
 
+**start agents** <br>
 
 
 ## 5. Testing TCP File Transfer <a name="tcp-testing"></a>
