@@ -168,26 +168,25 @@ You may need to re-add QMLDND01 with correct ROUTER-WAN-IP Address. <br>
 
 
 <br>
-Open Putty program, and launch aspera3 virtual machine. <br>
+Open Putty program, and launch **"aspera3"** virtual machine. <br>
 
-Logon as ibmuser/engageibm. Run the following commands. <br>
-
+Logon as ibmuser/engageibm. <br>
 
 
 ### 5.2 AMERICAS Environment - Transfer 1GB file  <a name="tcp-testing-1gb-byte-file"></a>
 
-Run the following commands from aspera3 command line as you did above. <br>
+Run the following commands from **"aspera3"** command line as you did above. <br>
 
-```
-dd if=/dev/zero of=/tmp/wdc-1gb-tcp.txt bs=1024 count=1048576 
 
-fteCreateTransfer -rt -1 -jn "test-wdc-ldn-1" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-1gb-tcp.txt " -de overwrite 
-```
+**dd if=/dev/zero of=/tmp/wdc-1gb-tcp.txt bs=1024 count=1048576**
+
+**fteCreateTransfer -rt -1 -jn "test-wdc-ldn-1" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-1gb-tcp.txt " -de overwrite**
+
 
 Notice the transfer speed is about 12MB/s. <br>
 ![alt text](./images/image-7.png)
 
-Notice that the elapsed time to transfer 1GB file between US and EU is about 1 minute and 17 seconds. <br>
+When the transfer is completed, Notice that the elapsed time to transfer 1GB file between AMERICAS and EUROPE is about 1 minute and 17 seconds. <br>
 ![alt text](./images/image-7a.png)
 
 
@@ -217,11 +216,9 @@ Logon as ibmuser/engageibm. Run the following commands. <br>
 
 ### 7.1 Transfer 1GB file <a name="fasp-testing-1gb-byte-file"></a>
 
-```
-dd if=/dev/zero of=/tmp/wdc-1gb-fasp.txt bs=1024 count=1048576
+**dd if=/dev/zero of=/tmp/wdc-1gb-fasp.txt bs=1024 count=1048576**
 
-fteCreateTransfer -rt -1 -jn "test-wdc-ldn-2" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-1gb-fasp.txt " -de overwrite
-```
+**fteCreateTransfer -rt -1 -jn "test-wdc-ldn-2" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-1gb-fasp.txt " -de overwrite**
 
 Check "Transfer Log" from the MQExplorer. Notice that transfer speed is now at 45MB/s<br>
 
