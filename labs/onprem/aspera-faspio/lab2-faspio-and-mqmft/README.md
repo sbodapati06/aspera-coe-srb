@@ -212,9 +212,11 @@ cd ~/faspio
 
 AMERICAS Environment, open Putty program, and launch aspera3 virtual machine. <br>
 
-Logon as ibmuser/engageibm. Run the following commands. <br>
+Logon as ibmuser/engageibm.<br>
 
-### 7.1 Transfer 1GB file <a name="fasp-testing-1gb-byte-file"></a>
+### 7.1 AMERICAS Environment - Transfer 1GB file <a name="fasp-testing-1gb-byte-file"></a>
+
+Run the following commands. <br>
 
 **dd if=/dev/zero of=/tmp/wdc-1gb-fasp.txt bs=1024 count=1048576**
 
