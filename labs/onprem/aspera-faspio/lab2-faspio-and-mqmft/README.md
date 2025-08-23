@@ -18,7 +18,7 @@
 - [5. Testing TCP File Transfer](#tcp-testing)
   * [5.1 AMERICAS Environment - MQ Explorer ](#mq-explorer)
   * [5.2 AMERICAS Environment - Transfer 1GB file ](#tcp-testing-1gb-byte-file)
-- [6. faspio Gateway setup](#faspio-setup)
+- [6. Switch MQ Channels to FASP](#faspio-setup)
   * [6.1 AMERICAS Environment - Switch MQ Channels to to FASP](#mq-channel-fasp-switch-americas)
 - [7. Testing FASP Transfers](#fasp-testing-americas)
   * [7.1 Transfer 1GB file](#fasp-testing-1gb-byte-file)
