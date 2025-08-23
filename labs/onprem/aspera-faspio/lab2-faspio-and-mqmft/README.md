@@ -9,16 +9,20 @@
 # Table of Contents 
 - [1. Overview](#overview)
 - [2. Prepare the lab environment ](#lab-env-prep)
-- [3. MQ Queue Manager Setup](#mq-setup)
+- [3. MQ Managed File Transfer Setup](#mq-setup)
   * [3.1 AMERICAS Environment Setup](#mq-setup-americas)
   * [3.2 EUROPE Environment Setup](#mq-setup-europe)
 - [4. MQ Channels Verify](#mq-channel-verify)
-  * [4.1 AMERICAS Environment Setup](#mq-channel-verify-americas)
-- [6. Testing TCP File Transfer](#tcp-testing)
-  * [6.1 AMERICAS Environment](#testing-americas)
-  * [6.2 EUROPE Environment](#testing-europe)
-- [7. Summary](#summary)
-
+  * [4.1 AMERICAS Environment - MQ Channels Verify](#mq-channel-verify-americas)
+  * [4.2 AMERICAS Environment - MQ Managed File Transfer Agents Verify](#mqmft-agents-verify-americas)
+- [5. Testing TCP File Transfer](#tcp-testing)
+  * [5.1 AMERICAS Environment - MQ Explorer ](#mq-explorer)
+  * [5.2 AMERICAS Environment - Transfer 1GB file ](#tcp-testing-1gb-byte-file)
+- [6. faspio Gateway setup](#faspio-setup)
+  * [6.1 AMERICAS Environment - Switch MQ Channels to to FASP](#mq-channel-fasp-switch-americas)
+- [7. Testing FASP Transfers](#fasp-testing-americas)
+  * [7.1 Transfer 1GB file](#fasp-testing-1gb-byte-file)
+- [8. Summary](#summary)
 ---
 
 ## 1. Overview <a name="overiew"></a>
@@ -73,6 +77,15 @@ In this step, you will setup IBM MQ Queue Mansgers for Managed File Transfer Que
 
 You are tasked with establishing a Queue Manager named QMMFTD01. QMMFTD01 will be used as a MQ Manaaged File Transfer Coordination Queue Manager. QMWDCD01 (where WDC denotes Washington DC), which you have created in the previous lab will be used as Managed File Transfer Agent Queue Manager. <br>
 
+Open the Windows VM. <br>
+![alt text](./images/image-2.png)
+
+Login to the windows VM as techzone / IBMDem0s. <br>
+
+Open Putty Program, and aspera3 virtual machine.
+
+![alt text](./images/image-2.png)
+
 ```
 cd ~/faspio
 ./setup-americas-europe-qmgr-mqmft.sh <EUROPE-SERVER-IP-ADDRESS>
@@ -88,6 +101,14 @@ The script will create QMMFTD01, and an Managed File Transfer Agent called AGTWD
 
 QMLDND01 (where LDN denotes London), which you have created in the previous lab will be used as Managed File Transfer Agent Queue Manager. 
 
+Open the Windows VM. <br>
+![alt text](./images/image-2.png)
+
+Login to the windows VM as techzone / IBMDem0s. <br>
+
+Open Putty Program, and aspera3 virtual machine.
+
+![alt text](./images/image-2.png)
 
 ```
 cd ~/faspio
@@ -99,308 +120,121 @@ Review the results. <br>
 
 
 
-## 4. MQ Channels Verify <a name="mq-channel-verify"></a>
+## 4. Verify MQ Channels & Agents  <a name="mq-channel-verify"></a>
 
 Now, lets verify the MQ Channels are in RUNNING state. <br>
 
 
-### 4.1 AMERICAS Environment <a name="mq-channel-verify-americas"></a>
+### 4.1 AMERICAS Environment - MQ Channel Verify <a name="mq-channel-verify-americas"></a>
 
+Run the below command from aspera3 terminal window. <br>
 ```
-echo "dis chstatus(wdc.ldn.*)" | runmqsc QMWDCD01
+echo "dis chstatus(*)" | runmqsc QMWDCD01
 ```
 
 ![alt text](./images/image-4.png)
 
+
+### 4.2 AMERICAS Environment - MQ Managed File Transfer Agents Verify <a name="mqmft-agents-verify-americas"></a>
+
+```
+fteListAgents
+```
+
+![alt text](./images/image-5.png)
+
 <br>
 
 
-**start agents** <br>
+
 
 
 ## 5. Testing TCP File Transfer <a name="tcp-testing"></a>
 
 It is now the moment to evaluate our efforts. <br>
 
+### 5.1 AMERICAS Environment - MQ Explorer <a name="mq-explorer"></a>
 
+From the Windows Virtual Machine, open MQ Explorer that can be launched from the Windows Desktop or the taskbar. <br>
 
-This is use case 1, see architecture diagram under section 2.1.
-<br>
-Run the following commands from Washington VM, and London VM.<br>
+Make sure you can connect to all three Queue Managers. if you see below dialog, just select Yes.<br>
 
-### 5.1 Transfer Zero bytes file 
-<table>
-    <thead>
-      <tr>
-        <th>WDC</th>
-        <th>LDN</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td> touch /tmp/test1.txt
+![alt text](./images/image-11.png)
 
-fteCreateTransfer -rt -1 -jn "test-wdc-ldn-1" -sa AGTWDC01 -sm QMWDCD01 -da AGTLDN01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/test1.txt" -de overwrite
-</td>
-            <td>ls -l /tmp 
+You may need to re-add QMLDND01 with correct ROUTER-WAN-IP Address. <br>
 
-Make sure test1.txt is transferred.</td>
-        </tr>
-    </tbody>
-  </table>
-
-
-
-### 5.2 Transfer 1GB file
-
-Run the following commands from Washington VM, and London VM.<br>
-
-<table>
-    <thead>
-      <tr>
-        <th>WDC</th>
-        <th>LDN</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>dd if=/dev/zero of=/tmp/wdc.txt bs=1024 count=1048576
-
-fteCreateTransfer -rt -1 -jn "test-wdc-ldn-1" -sa AGTWDC01 -sm QMWDCD01 -da AGTLDN01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc.txt " -de overwrite
-</td>
-            <td>ls -l /tmp
-
-Make sure test1.txt is transferred.</td>
-        </tr>
-    </tbody>
-  </table>
-
-<br>
-
-
-
-### 5.3 MQExplorer - Verify Transfer Status 
-
-Open MQExplorer on AMERICAS Windows VM. <br>
-
-Add all three Queue Managers.<br>
-
-<b>Add QMMFTD01 Managed File Transfer Configuration as below.</b><br>
-![](./images/mqexplorer-mft-new_config.png)
-For the Coordination Queue Manager > Choose QMMFTD01.<br>
-For the Command Queue Manager > Choose QMMFTD01.<br>
-For the Configuration Name, choose default value QMMFTD01.<br>
-<br>
-<b>Connect to QMMFTD01 Managed File Transfer Configuration as below.</b><br>
-
-![](./images/mqexplorer-mft-connect.png)
-
-
-#### Click on Transfer Log 
-
-![](./images/mqmft-tcp-transfer-log-1.png)
-
-
-
-
-
-
-
-
-
-
-
-## 5. fasp.io - configuration 
-
-This is use case 2, see architecture diagram under section 2.2.
-<br>
-Configure Channels to route traffic to the fasp.io Gateway.<br>
-
-<table>
-    <thead>
-      <tr>
-        <th>WDC</th>
-        <th>LDN</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>STOP CHL(WDC.LDN)
-
-DIS CHSTATUS(WDC.LDN)
-
-alter chl(WDC.LDN) CHLTYPE(SDR) CONNAME('xx.xx.xx.xx(1500)')
-
-START CHL(WDC.LDN)
-</td>
-            <td>STOP CHL(LDN.WDC)
-
-DIS CHSTATUS(LDN.WDC)
-
-alter chl(ldn.wdc) CHLTYPE(SDR) CONNAME('yy.yy.yy.yy(1500)')
-
-START CHL(LDN.WDC)
-</td>
-        </tr>
-    </tbody>
-  </table>
+![alt text](./images/image-9.png)
 
 
 <br>
+Open Putty program, and launch aspera3 virtual machine. <br>
 
-## 6. Testing FASP Transfers
-
-
-### 6.1 Transfer Zero bytes file 
-<table>
-    <thead>
-      <tr>
-        <th>WDC</th>
-        <th>LDN</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td> touch /tmp/test1.txt
-
-fteCreateTransfer -rt -1 -jn "test-wdc-ldn-1" -sa AGTWDC01 -sm QMWDCD01 -da AGTLDN01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/test1.txt" -de overwrite
-</td>
-            <td>ls -l /tmp 
-
-Make sure test1.txt is transferred.</td>
-        </tr>
-    </tbody>
-  </table>
-
-### 6.2 Transfer 1GB file
-
-<table>
-    <thead>
-      <tr>
-        <th>WDC</th>
-        <th>LDN</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>dd if=/dev/zero of=wdc.txt bs=1024 count=1048576
-
-fteCreateTransfer -rt -1 -jn "test-wdc-ldn-1" -sa AGTWDC01 -sm QMWDCD01 -da AGTLDN01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc.txt " -de overwrite
-</td>
-            <td>ls -l /tmp
-
-Make sure test1.txt is transferred.</td>
-        </tr>
-    </tbody>
-  </table>
-
-
-### 6.3 MQExplorer - Verify Transfer Status 
-
-Open MQExplorer on Washington VM, and verify Transfer log. <br>
-
-![](./images/mqmft-fasp-transfer-log-1.png)
-
-
-Now compare the difference between TCP Transfer, and FASP.IO gateway transfer of 1GB file. You should see 60-65% transfer rate increase.
+Logon as ibmuser/engageibm. Run the following commands. <br>
 
 
 
-<br><br>
+### 5.2 AMERICAS Environment - Transfer 1GB file  <a name="tcp-testing-1gb-byte-file"></a>
 
-## Congratulations!!!
-## You have successfully completed the MQ File Transfers using fasp.io MQ Advanced module !!!
+Run the following commands from aspera3 command line as you did above. <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 4.1 AMERICAS Environment <a name="testing-americas"></a>
-
-Copy and paste the below commands in each of the Putty Windows. <br>
-
-**Putty Window3** <br>
 ```
-watch -n 1 'echo "dis qlocal(xmitq.QMLDND01.FASP) curdepth" | runmqsc QMWDCD01'
+dd if=/dev/zero of=/tmp/wdc-1gb-tcp.txt bs=1024 count=1048576 
+
+fteCreateTransfer -rt -1 -jn "test-wdc-ldn-1" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-1gb-tcp.txt " -de overwrite 
 ```
 
-**Putty Window2** <br>
-```
-watch -n 1 'echo "dis qlocal(XMITQ.QMLDND01.TCP) curdepth" | runmqsc QMWDCD01'
-```
-
-**Putty Window1** <br>
-Lets blast 1000 messages of each message size of 1MB into the TCP and FASP Remote Queues. <br>
-```
-amqsblst QMWDCD01 QR.LDN.TCP.IN -W -s 1048576 -c 1000 && amqsblst QMWDCD01 QR.LDN.FASP.IN -W -s 1048576 -c 1000
-```
-
-<br>
-
-The MQ blast messages program dumps 1000 messages into both TCP and FASP transmission Queues at almost the same time.
-<br>
-
-********************************************************** <br>
-**OBSERVE the Speed TCP vs FASP**<br>
-********************************************************** <br>
-
-![alt text](./images/image-5.png)
-
-Notice that FASP Transmission Queue is being drained quicker than TCP Transmission Queue.
-<br>
-
-### 6.2 EUROPE Environment (Optional) <a name="upload"></a>
-
-Copy and paste the below commands in each of the Putty Windows. <br>
-
-**Putty Window3** <br>
-```
-watch -n 1 'echo "dis qlocal(fasp.in) curdepth" | runmqsc QMLDND01'
-```
-
-**Putty Window2** <br>
-```
-watch -n 1 'echo "dis qlocal(tcp.in) curdepth" | runmqsc QMLDND01'
-```
-
-if, the transfer is successful you should see 1000 messages in TCP.IN, and FASP.IN queues. <br>
-
-![alt text](./images/image-6.png)
-
-Note that the TCP transfer is still going in the top window in the screenshot above. <br>
-
-<br>
-
-
-
-## 7. Summary <a name="summary"></a>
-
-You explored the functionalities of the IBM Aspera faspio Gateway by connecting IBM MQ Channels, which led to an improvement in transfer speeds of 60-70%. Furthermore, you have the ability to modify the Channel BATCHSZ attribute to enhance performance even more.
-<br>
-
-The distance significantly impairs TCP performance, and this is where FASP excels. Below is an illustration of the same tests conducted between the AMERICAS and ASIAPACIFIC Regions.
-
+Notice the transfer speed is about 12MB/s. <br>
 ![alt text](./images/image-7.png)
 
-As observed, the FASP transmission queue is nearly depleted, whereas the TCP transmission queue is exceedingly sluggish. It is evident that there is a significant disparity in the transfer rates between TCP and FASP across remote areas and slow networks.
+Notice that the elapsed time to transfer 1GB file between US and EU is about 1 minute and 17 seconds. <br>
+![alt text](./images/image-7a.png)
 
+
+## 6. faspio Gateway setup  <a name="faspio-setup"></a>
+
+Now, lets leverage faspio gateway between the MQ Queue Managers. <br>
+
+### 6.1 AMERICAS Environment - Switch MQ Channels to to FASP  <a name="mq-channel-fasp-switch-americas"></a>
+
+Let's configure MQ Channels to route traffic to the faspio Gateway.<br>
+
+Open Putty program, and launch aspera3 virtual machine. <br>
+
+Logon as ibmuser/engageibm. Run the following commands. <br>
+
+```
+cd ~/faspio
+./switch-americas-europe-mqchannel-tcp-to-fasp.sh
+```
+
+
+## 7. Testing FASP Transfers <a name="fasp-testing-americas"></a>
+
+AMERICAS Environment, open Putty program, and launch aspera3 virtual machine. <br>
+
+Logon as ibmuser/engageibm. Run the following commands. <br>
+
+### 7.1 Transfer 1GB file <a name="fasp-testing-1gb-byte-file"></a>
+
+```
+dd if=/dev/zero of=/tmp/wdc-1gb-fasp.txt bs=1024 count=1048576
+
+fteCreateTransfer -rt -1 -jn "test-wdc-ldn-2" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-1gb-fasp.txt " -de overwrite
+```
+
+Check "Transfer Log" from the MQExplorer. Notice that transfer speed is now at 45MB/s<br>
+
+![alt text](./images/image-8.png)
+
+Check the elapsed time with FASP is now at 33seconds.
 <br>
+![alt text](./images/image-8a.png)
+
+
+## 8. Summary <a name="summary"></a>
+Now compare the difference between TCP Transfer, and FASPIO gateway transfer of 1GB file. You should see 60-65% transfer rate increase.
+
+<br><br><br><br>
 
 ### !!! End of lab !!!
 
