@@ -23,6 +23,7 @@
 - [7. Testing FASP Transfers](#fasp-testing-americas)
   * [7.1 Transfer 1GB file](#fasp-testing-1gb-byte-file)
 - [8. Summary](#summary)
+
 ---
 
 ## 1. Overview <a name="overiew"></a>
@@ -97,7 +98,7 @@ The script will create QMMFTD01, and an Managed File Transfer Agent called AGTWD
 **Note:** Due to the time limitations of the workshop, we streamlined the lab process and developed scripts for establishing the MQ Queue Managers and their connectivity. Kindly review the scripts if time allows. <br> 
 
 
-### 3.2 EUROPE Environment <a name="mq-setup-americas"></a>
+### 3.2 EUROPE Environment <a name="mq-setup-europe"></a>
 
 QMLDND01 (where LDN denotes London), which you have created in the previous lab will be used as Managed File Transfer Agent Queue Manager. 
 
@@ -190,9 +191,9 @@ Notice that the elapsed time to transfer 1GB file between US and EU is about 1 m
 ![alt text](./images/image-7a.png)
 
 
-## 6. faspio Gateway setup  <a name="faspio-setup"></a>
+## 6. Switch MQ Channels to FASP  <a name="faspio-setup"></a>
 
-Now, lets leverage faspio gateway between the MQ Queue Managers. <br>
+Now, lets leverage faspio gateway between the MQ Queue Managers. Let's modify the MQ Agent Channels to use FASP Gateway.<br>
 
 ### 6.1 AMERICAS Environment - Switch MQ Channels to to FASP  <a name="mq-channel-fasp-switch-americas"></a>
 
@@ -229,6 +230,8 @@ Check "Transfer Log" from the MQExplorer. Notice that transfer speed is now at 4
 Check the elapsed time with FASP is now at 33seconds.
 <br>
 ![alt text](./images/image-8a.png)
+
+<br>
 
 
 ## 8. Summary <a name="summary"></a>
