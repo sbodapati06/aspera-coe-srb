@@ -85,7 +85,7 @@ Login to the windows VM as techzone / IBMDem0s. <br>
 
 Open Putty Program, and aspera3 virtual machine.
 
-![alt text](./images/image-2.png)
+![alt text](./images/image-3.png)
 
 ```
 cd ~/faspio
