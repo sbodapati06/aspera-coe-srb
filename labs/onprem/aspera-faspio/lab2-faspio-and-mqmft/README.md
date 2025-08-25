@@ -181,15 +181,26 @@ Run the following commands from **"aspera3"** command line as you did above. <br
 
 **fteCreateTransfer -rt -1 -jn "test-wdc-ldn-1" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-1gb-tcp.txt " -de overwrite**
 
-
 Notice the transfer speed is about 12MB/s. <br>
 ![alt text](./images/image-7.png)
 
 When the transfer is completed, Notice that the elapsed time to transfer 1GB file between AMERICAS and EUROPE is about 1 minute and 17 seconds. <br>
 ![alt text](./images/image-7a.png)
 
+Now, let's transfer a 10GB file. <br>
+**dd if=/dev/zero of=/tmp/wdc-10gb-tcp.txt bs=1024 count=10485760**
 
-## 6. Switch MQ Channels to FASP  <a name="faspio-setup"></a>
+**fteCreateTransfer -rt -1 -jn "test-wdc-ldn-2" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-10gb-tcp.txt" -de overwrite**
+
+![alt text](./images/image-12.png)
+
+Notice that the transfer speed is about 13-14MB/sec. <br>
+![alt text](./images/image-13.png)
+
+Notice that it took 13 minutes and 40 seconds to transfer 10GB file. <br>
+<br>
+
+## 6. FASP Switch - Switch MQ Channels to FASP  <a name="faspio-setup"></a>
 
 Now, lets leverage faspio gateway between the MQ Queue Managers. Let's modify the MQ Agent Channels to use FASP Gateway.<br>
 
@@ -205,6 +216,16 @@ Logon as ibmuser/engageibm. Run the following commands. <br>
 cd ~/faspio
 ./switch-americas-europe-mqchannel-tcp-to-fasp.sh
 ```
+
+
+### 6.2 EUROPE Environment - Restart MQ Receiver Channel  <a name="mq-channel-fasp-switch-europe"></a>
+
+Run the below command to restart WDC.LDN channel. <br>
+
+echo "stop channel(wdc.ldn)" | runmqsc QMLDND01
+echo "dis chstatus(wdc.ldn)" | runmqsc QMLDND01
+Make sure the channel is stopped. <br>
+echo "start channel(wdc.ldn)" | runmqsc QMLDND01
 
 
 ## 7. Testing FASP Transfers <a name="fasp-testing-americas"></a>
@@ -230,6 +251,18 @@ Check the elapsed time with FASP is now at 33seconds.
 ![alt text](./images/image-8a.png)
 
 <br>
+
+Now, let's transfer a 10GB file. <br>
+**dd if=/dev/zero of=/tmp/wdc-10gb-fasp.txt bs=1024 count=10485760**
+
+**fteCreateTransfer -rt -1 -jn "test-wdc-ldn-3" -sa AGTWDCD01 -sm QMWDCD01 -da AGTLDND01 -dm QMLDND01 -sd delete -dd "/tmp/" "/tmp/wdc-10gb-fasp.txt" -de overwrite**
+
+![alt text](./images/image-14.png)
+
+Notice that the transfer speed is running about 45MB/s. <br>
+
+![alt text](./images/image-15.png)
+Notice that the elapsed tiem is about 3 minutes and 44 seconds. <br>
 
 
 ## 8. Summary <a name="summary"></a>
