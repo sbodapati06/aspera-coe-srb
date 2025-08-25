@@ -19,7 +19,8 @@
   * [5.1 AMERICAS Environment - MQ Explorer ](#mq-explorer)
   * [5.2 AMERICAS Environment - Transfer 1GB file ](#tcp-testing-1gb-byte-file)
 - [6. Switch MQ Channels to FASP](#faspio-setup)
-  * [6.1 AMERICAS Environment - Switch MQ Channels to to FASP](#mq-channel-fasp-switch-americas)
+  * [6.1 AMERICAS Environment - Switch MQ Channels to FASP](#mq-channel-fasp-switch-americas)
+  * [6.1 EUROPE Environment - Restart MQ Receiver Channel](#mq-channel-fasp-switch-europe)
 - [7. Testing FASP Transfers](#fasp-testing-americas)
   * [7.1 Transfer 1GB file](#fasp-testing-1gb-byte-file)
 - [8. Summary](#summary)
@@ -222,11 +223,13 @@ cd ~/faspio
 
 Run the below command to restart WDC.LDN channel. <br>
 
+```
 echo "stop channel(wdc.ldn)" | runmqsc QMLDND01
 echo "dis chstatus(wdc.ldn)" | runmqsc QMLDND01
 Make sure the channel is stopped. <br>
 echo "start channel(wdc.ldn)" | runmqsc QMLDND01
-
+```
+<br>
 
 ## 7. Testing FASP Transfers <a name="fasp-testing-americas"></a>
 
