@@ -271,9 +271,9 @@ Notice that the elapsed tiem is about 3 minutes and 44 seconds. <br>
 ## 8. Summary <a name="summary"></a>
 Now compare the difference between TCP Transfer, and FASPIO gateway transfer of 1GB file. You should see 60-65% transfer rate increase.
 
-<br><br><br><br>
+<br><br><br>
 
-### !!! End of lab !!!
+### !!! Congratulations!!! End of lab !!!
 
 <br>
 
