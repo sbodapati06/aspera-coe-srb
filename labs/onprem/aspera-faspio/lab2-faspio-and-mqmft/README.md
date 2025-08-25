@@ -37,7 +37,6 @@ IBM Aspera faspio Gateway is a software component that accelerates TCP-based dat
 Architecture Diagram<br>
 ![alt text](./images/image.png)
 
-
 The IBM MQ Managed File Transfer Coordination, Command and Managed File Transfer Agent(s) Queue Managers between AMERICAS, and EUROPE are linked via a set of Sender/Receiver TCP channels.
 <br>
 Then, we will leverage IBM Aspera faspio bridge between the IBM MQ Sender/Receiver Channels to speed up file transfers between the two Queue Managers. <br>
